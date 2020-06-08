@@ -3,14 +3,15 @@
   <head>
     <style>
      table {border: 1px solid; border-spacing: 0px}
-     tr td{border: 1px solid; border-spacing: 0px; height:100px; width: 100px}
+     tr td{border: 1px solid; border-spacing: 0px; height:100px; width: 100px; font-size: 2em; text-align: center;}
+     #whoseTurn {font-size: 1.2em}
     </style>
 
   </head>
 
 <body>
   <h1> Tic Tac Toe </h1>
-
+    <div>
     <table id='board'>
         <tr >
           <td id= 't00'></td>
@@ -30,10 +31,8 @@
           <td id= 't22'></td>
         </tr>
     </table>
-
-    <div id='whoseTurn'> X starts the game </div>
-
-    <div id='instruction'> </div>
+    </div>
+    <div id='whoseTurn' value=''> X starts the game </div>
 
     <script src = "App.js"> </script>
   </body>
