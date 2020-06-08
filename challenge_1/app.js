@@ -8,13 +8,21 @@ let currentBoard = {
 }
 
 // add x or o depending on currentTurn
-function onePlay(e, mark) {
+function playOnce(e, mark) {
   if(e.target.innerHTML === '') {
     currentBoard[e.target.id] = mark;
     e.target.innerHTML = mark;
+    totalPlay++;
   }
 };
 
+function changeTurn(){
+  if(currentTurn === 'X') {
+    currentTurn = 'O';
+  } else {
+    currentTurn = 'X';
+  }
+}
 
 function checkWinner(turn) {
   const {t00, t01, t02, t10, t11, t12, t20, t21, t22} = currentBoard
@@ -37,10 +45,10 @@ function checkWinner(turn) {
 };
 
 
-function alternate(e) {
-  if (currentTurn === 'X' && totalPlay !== 9 && gameOver !== true) {
-    onePlay(e, currentTurn);
-    checkWinner(currentTurn)
+function toggle(e) {
+  if (totalPlay !== 9 && gameOver !== true) {
+    playOnce(e, currentTurn);
+    checkWinner(currentTurn);
 
     if(gameOver === true) {
       var msg = `Game over. ${currentTurn} has won.`
@@ -48,34 +56,14 @@ function alternate(e) {
       return;
     }
 
-    totalPlay++;
     if (totalPlay === 9) {
       document.getElementById('whoseTurn').innerHTML = 'Board is full and game is a tie. Game over.';
       return;
     }
 
-    currentTurn = 'O';
+    changeTurn();
     document.getElementById('whoseTurn').innerHTML = `It is ${currentTurn}\'s turn`;
 
-  } else if (currentTurn === 'O' && totalPlay !== 9 && gameOver !== true) {
-    onePlay(e, currentTurn);
-    checkWinner(currentTurn)
-
-    if(gameOver === true) {
-      var msg = `Game over. ${currentTurn} has won.`
-      document.getElementById('whoseTurn').innerHTML = msg;
-      return;
-    }
-
-    totalPlay++;
-
-    if (totalPlay === 9) {
-      document.getElementById('whoseTurn').innerHTML = 'Board is full and game is a tie. Game over.';
-      return;
-    }
-
-    currentTurn = 'X';
-    document.getElementById('whoseTurn').innerHTML = `It is ${currentTurn}\'s turn`;
   }
 }
 
@@ -96,8 +84,8 @@ function resetGame() {
 
 // Event listener on board
 const table = document.getElementById('board');
-table.addEventListener('click', alternate, false);
+table.addEventListener('click', toggle, false);
 
-
+// Reset button
 const reset = document.getElementById('reset');
 reset.addEventListener('click', resetGame, false);
