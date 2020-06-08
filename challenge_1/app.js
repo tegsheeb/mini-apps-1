@@ -107,10 +107,20 @@ const resetGame = () => {
 }
 
 
-// Event listener on board
-const board = document.getElementById('board');
-board.addEventListener('click', toggle , false);
+const handleClick = () => {
+  toggle(event)
+  // document.getElementById(target).addEventListener('click', toggle, false);
+}
 
-// Reset button
-const reset = document.getElementById('reset');
-reset.addEventListener('click', resetGame, false);
+// const handleReset = resetGame();
+
+  // document.getElementById(target).addEventListener('click', resetGame, false);
+// }
+
+// // Event listener on board
+// const board = document.getElementById('board');
+// board.addEventListener('click', toggle , false);
+
+// // Reset button
+// const reset = document.getElementById('reset');
+// reset.addEventListener('click', resetGame, false);
