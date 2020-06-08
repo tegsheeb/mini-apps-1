@@ -11,7 +11,6 @@ const state = {
 }
 
 
-
 // add x or o depending on currentTurn
 const playOnce = (e, mark) => {
   if(e.target.innerHTML === '') {

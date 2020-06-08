@@ -2,8 +2,9 @@
 <html>
   <head>
     <style>
-     table {border: 1px solid; border-spacing: 0px}
-     tr td{border: 1px solid; border-spacing: 0px; height:100px; width: 100px; font-size: 2em; text-align: center;}
+     #board table {border: 1px solid; border-spacing: 0px}
+     #board tr td{border: 1px solid; border-spacing: 0px; height:100px; width: 100px; font-size: 3em; text-align: center;}
+     #scoreBoard tr td{width: 50px; font-size: 1.2em; text-align: center;}
      #whoseTurn {font-size: 1.2em}
      #reset {font-style: bold; background-color:lightgray}
     </style>
@@ -13,18 +14,27 @@
 <body>
   <h1> Tic Tac Toe </h1>
 
-<!-- 
-  <table id='board'>
+<div> Scoreboard
+  <table id='scoreBoard'>
     <tr>
-      <td id= 't00'></td>
-      <td id= 't01'></td>
+      <td colspan = 5> Wins</td>
     </tr>
-    <tr >
-      <td id= 't10'></td>
-      <td id= 't11'></td>
-    </tr>
-  </table> -->
 
+    <tr>
+      <td >X </td>
+      <td >  </td>
+      <td > O</td>
+    </tr>
+    <tr>
+      <td id='xScore'>2</td>
+      <td > vs </td>
+
+      <td id= 'oScore'>3</td>
+    </tr>
+
+  </table>
+</div>
+<br>
     <div>
     <table id='board'>
         <tr >
