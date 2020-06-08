@@ -6,6 +6,7 @@ let currentBoard = {
   t10: '', t11: '', t12: '',
   t20: '', t21: '', t22: ''
 }
+let lastWinner = '';
 
 // add x or o depending on currentTurn
 function playOnce(e, mark) {
@@ -40,6 +41,7 @@ function checkWinner(turn) {
   for (let i = 0; i < winCom.length; i++) {
     if(winCom[i][0] === turn && winCom[i][1] === turn && winCom[i][2] === turn) {
       gameOver = true;
+      lastWinner = turn;
     }
   }
 };
@@ -69,7 +71,13 @@ function toggle(e) {
 
 
 function resetGame() {
-  currentTurn = 'X';
+  if (lastWinner === '') {
+    currentTurn = 'X';
+    document.getElementById('whoseTurn').innerHTML = `${currentTurn} starts the game`;
+  } else {
+    currentTurn = lastWinner;
+    document.getElementById('whoseTurn').innerHTML = `${lastWinner} won the last time, therefore ${lastWinner} starts the game.`;
+  }
   totalPlay = 0;
   gameOver = false;
 
@@ -77,8 +85,6 @@ function resetGame() {
     currentBoard[key] = '';
     document.getElementById(`${key}`).innerHTML = '';
   }
-
-  document.getElementById('whoseTurn').innerHTML = `${currentTurn} starts the game`;
 }
 
 
