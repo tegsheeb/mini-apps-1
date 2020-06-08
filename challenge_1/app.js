@@ -32,7 +32,6 @@ function checkWinner(turn) {
   for (let i = 0; i < winCom.length; i++) {
     if(winCom[i][0] === turn && winCom[i][1] === turn && winCom[i][2] === turn) {
       gameOver = true;
-      // gameOverMsg();
     }
   }
 };
@@ -51,7 +50,7 @@ function alternate(e) {
 
     totalPlay++;
     if (totalPlay === 9) {
-      document.getElementById('whoseTurn').innerHTML = 'Board is full. Game over.';
+      document.getElementById('whoseTurn').innerHTML = 'Board is full and game is a tie. Game over.';
       return;
     }
 
@@ -71,7 +70,7 @@ function alternate(e) {
     totalPlay++;
 
     if (totalPlay === 9) {
-      document.getElementById('whoseTurn').innerHTML = 'Board is full. Game over.';
+      document.getElementById('whoseTurn').innerHTML = 'Board is full and game is a tie. Game over.';
       return;
     }
 
@@ -79,7 +78,6 @@ function alternate(e) {
     document.getElementById('whoseTurn').innerHTML = `It is ${currentTurn}\'s turn`;
   }
 }
-
 
 // Event listener on board
 const table = document.getElementById('board');
