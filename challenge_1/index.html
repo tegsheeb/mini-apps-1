@@ -1,67 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-     #board table {border: 1px solid; border-spacing: 0px}
-     #board tr td{border: 1px solid; border-spacing: 0px; height:100px; width: 100px; font-size: 3em; text-align: center;}
-     #scoreBoard tr td{width: 50px; font-size: 1.2em; text-align: center;}
-     #whoseTurn {font-size: 1.2em}
-     #reset {font-style: bold; background-color:lightgray}
-    </style>
 
-  </head>
+<head>
+  <style>
+    table {
+      border: 1px solid;
+      border-spacing: 0px
+    }
+
+    #board tr td {
+      border: 1px solid;
+      border-spacing: 0px;
+      height: 100px;
+      width: 100px;
+      font-size: 3em;
+      text-align: center;
+    }
+
+    #scoreBoard tr td {
+      width: 50px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    #whoseTurn {
+      font-size: 1.2em
+    }
+
+    #reset {
+      font-style: bold;
+      background-color: lightgray
+    }
+  </style>
+
+</head>
 
 <body>
   <h1> Tic Tac Toe </h1>
 
-<div> Scoreboard
-  <table id='scoreBoard'>
-    <tr>
-      <td colspan = 5> Wins</td>
-    </tr>
+  <div> Scoreboard
+    <table id='scoreBoard'>
+      <tr>
+        <td colspan=5> Wins</td>
+      </tr>
 
-    <tr>
-      <td >X </td>
-      <td >  </td>
-      <td > O</td>
-    </tr>
-    <tr>
-      <td id='xScore'>2</td>
-      <td > vs </td>
+      <tr>
+        <td>X</td>
+        <td> </td>
+        <td>O</td>
+      </tr>
+      <tr>
+        <td id='xScore'> 0 </td>
+        <td> vs </td>
 
-      <td id= 'oScore'>3</td>
-    </tr>
+        <td id='oScore'> 0 </td>
+      </tr>
 
-  </table>
-</div>
-<br>
-    <div>
-    <table id='board'>
-        <tr >
-          <td id= 't00'></td>
-          <td id= 't01'></td>
-          <td id= 't02'></td>
-        </tr>
-
-        <tr >
-          <td id= 't10'></td>
-          <td id= 't11'></td>
-          <td id= 't12'></td>
-        </tr>
-
-        <tr >
-          <td id= 't20'></td>
-          <td id= 't21'></td>
-          <td id= 't22'></td>
-        </tr>
     </table>
-    </div>
-    <div id='whoseTurn' > X starts the game </div>
+  </div>
+  <br>
+  <div>
+    <table id='board'>
+      <tr>
+        <td id='t00'></td>
+        <td id='t01'></td>
+        <td id='t02'></td>
+      </tr>
 
-    <button id='reset' type = 'button'> Reset game </button>
+      <tr>
+        <td id='t10'></td>
+        <td id='t11'></td>
+        <td id='t12'></td>
+      </tr>
+
+      <tr>
+        <td id='t20'></td>
+        <td id='t21'></td>
+        <td id='t22'></td>
+      </tr>
+    </table>
+  </div>
+  <div id='whoseTurn'> X starts the game </div>
+
+  <button id='reset' type='button'> Reset game </button>
 
 
-    <script src = "App.js"> </script>
-  </body>
+  <script src="App.js"> </script>
+</body>
+
 </html>
 

@@ -7,7 +7,9 @@ const state = {
     t10: '', t11: '', t12: '',
     t20: '', t21: '', t22: ''
   },
-  lastWinner : ''
+  lastWinner : '',
+  xWin: 0,
+  oWin: 0
 }
 
 
@@ -43,12 +45,27 @@ const checkWinner = (turn) => {
 
   for (let i = 0; i < winCom.length; i++) {
     if(winCom[i][0] === turn && winCom[i][1] === turn && winCom[i][2] === turn) {
-      state.gameOver = true;
       state.lastWinner = turn;
+      trackScore(turn);
+      updateScoreBoard();
+      state.gameOver = true;
+      return;
     }
   }
 };
 
+const trackScore = (turn) => {
+  if (turn === 'X') {
+    state.xWin++;
+  } else {
+    state.oWin++;
+  }
+}
+
+const updateScoreBoard = () => {
+  document.getElementById('xScore').innerHTML = state.xWin;
+  document.getElementById('oScore').innerHTML = state.oWin;
+}
 
 const toggle = (e) => {
   if (state.totalPlay !== 9 && state.gameOver !== true) {
@@ -91,8 +108,8 @@ const resetGame = () => {
 
 
 // Event listener on board
-const table = document.getElementById('board');
-table.addEventListener('click', toggle , false);
+const board = document.getElementById('board');
+board.addEventListener('click', toggle , false);
 
 // Reset button
 const reset = document.getElementById('reset');
