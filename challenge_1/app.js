@@ -79,6 +79,25 @@ function alternate(e) {
   }
 }
 
+
+function resetGame() {
+  currentTurn = 'X';
+  totalPlay = 0;
+  gameOver = false;
+
+  for (key in currentBoard) {
+    currentBoard[key] = '';
+    document.getElementById(`${key}`).innerHTML = '';
+  }
+
+  document.getElementById('whoseTurn').innerHTML = `${currentTurn} starts the game`;
+}
+
+
 // Event listener on board
 const table = document.getElementById('board');
 table.addEventListener('click', alternate, false);
+
+
+const reset = document.getElementById('reset');
+reset.addEventListener('click', resetGame, false);
