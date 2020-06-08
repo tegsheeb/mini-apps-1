@@ -3,6 +3,13 @@
 
 <head>
   <style>
+    .content {
+      max-width: 500px;
+      margin: auto;
+    }
+    .tables {
+      margin: auto;
+    }
     table {
       border: 1px solid;
       border-spacing: 0px
@@ -35,56 +42,65 @@
 
 </head>
 
-<body>
-  <h1> Tic Tac Toe </h1>
+<body class="content">
+  <div class='tables'>
+    <h1> Tic Tac Toe </h1>
 
-  <div> Scoreboard
-    <table id='scoreBoard'>
-      <tr>
-        <td colspan=5> Wins</td>
-      </tr>
+    <div> Scoreboard
+      <table id='scoreBoard'>
+        <tr>
+          <td colspan=5> Wins</td>
+        </tr>
+        <tr>
+          <td>X  - </td>
+          <td id='xName'></td>
+          <td> </td>
+          <td>O  - </td>
+          <td id='oName'></td>
 
-      <tr>
-        <td>X</td>
-        <td> </td>
-        <td>O</td>
-      </tr>
-      <tr>
-        <td id='xScore'> 0 </td>
-        <td> vs </td>
+        </tr>
+        <tr>
+          <td id='xScore' colspan=2> 0 </td>
+          <td> vs </td>
+          <td id='oScore'colspan=2> 0 </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div>
+      <table id='board'>
+        <tr>
+          <td id='t00' onclick="handleClick(this.id)"></td>
+          <td id='t01' onclick="handleClick(this.id)"></td>
+          <td id='t02' onclick="handleClick(this.id)"></td>
+        </tr>
 
-        <td id='oScore'> 0 </td>
-      </tr>
+        <tr>
+          <td id='t10' onclick="handleClick(this.id)"></td>
+          <td id='t11' onclick="handleClick(this.id)"></td>
+          <td id='t12' onclick="handleClick(this.id)"></td>
+        </tr>
 
-    </table>
-  </div>
-  <br>
-  <div>
-    <table id='board'>
-      <tr>
-        <td id='t00' onclick = "handleClick(this.id)"></td>
-        <td id='t01' onclick = "handleClick(this.id)"></td>
-        <td id='t02' onclick = "handleClick(this.id)"></td>
-      </tr>
-
-      <tr>
-        <td id='t10' onclick = "handleClick(this.id)"></td>
-        <td id='t11' onclick = "handleClick(this.id)"></td>
-        <td id='t12' onclick = "handleClick(this.id)"></td>
-      </tr>
-
-      <tr>
-        <td id='t20' onclick = "handleClick(this.id)"></td>
-        <td id='t21' onclick = "handleClick(this.id)"></td>
-        <td id='t22' onclick = "handleClick(this.id)"></td>
-      </tr>
-    </table>
+        <tr>
+          <td id='t20' onclick="handleClick(this.id)"></td>
+          <td id='t21' onclick="handleClick(this.id)"></td>
+          <td id='t22' onclick="handleClick(this.id)"></td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div id='whoseTurn'> X starts the game </div>
 
   <button id='reset' type='button' onclick="resetGame()"> Reset game </button>
 
+  <div>
+  <label for ="playerX"> Enter player name for X</label>
+  <input type='text' id='nameX'> <br>
+  <label for ="playerO"> Enter player name for O</label>
+  <input type='text' id='nameO'>
+  <button id='reset' type='button' onclick="submitName()"> Submit Names and start the game </button>
 
+  </div>
   <script src="App.js"> </script>
 </body>
 

@@ -9,7 +9,9 @@ const state = {
   },
   lastWinner : '',
   xWin: 0,
-  oWin: 0
+  oWin: 0,
+  xName: '',
+  oName: ''
 }
 
 
@@ -67,7 +69,7 @@ const updateScoreBoard = () => {
   document.getElementById('oScore').innerHTML = state.oWin;
 }
 
-const toggle = (e) => {
+const play = (e) => {
   if (state.totalPlay !== 9 && state.gameOver !== true) {
     playOnce(e, state.currentTurn);
     checkWinner(state.currentTurn);
@@ -106,21 +108,17 @@ const resetGame = () => {
   }
 }
 
-
 const handleClick = () => {
-  toggle(event)
-  // document.getElementById(target).addEventListener('click', toggle, false);
+  play(event)
 }
 
-// const handleReset = resetGame();
+const submitName = () => {
+  state.xName = document.getElementById('nameX').value;
+  state.oName = document.getElementById('nameO').value;
+  displayName();
+}
 
-  // document.getElementById(target).addEventListener('click', resetGame, false);
-// }
-
-// // Event listener on board
-// const board = document.getElementById('board');
-// board.addEventListener('click', toggle , false);
-
-// // Reset button
-// const reset = document.getElementById('reset');
-// reset.addEventListener('click', resetGame, false);
+const displayName = () => {
+  document.getElementById('xName').innerHTML = state.xName;
+  document.getElementById('oName').innerHTML = state.oName;
+}
