@@ -2,17 +2,9 @@
 console.log('this is from app');
 console.log(document.getElementById('t00'));
 
-function putX(e) {
+function addMark(e, mark) {
   if(e.target.innerHTML === '') {
-    e.target.innerHTML = 'X';
-  } else {
-    document.getElementById('instruction').innerHTML = 'Please press empty place'
-  }
-};
-
-function putO(e) {
-  if(e.target.innerHTML === '') {
-    e.target.innerHTML = 'O';
+    e.target.innerHTML = mark;
   } else {
     document.getElementById('instruction').innerHTML = 'Please press empty place'
   }
@@ -23,16 +15,15 @@ let currentTurn = 'X';
 
 function alternate(e) {
   if (currentTurn === 'X') {
-    putX(e);
+    addMark(e, currentTurn);
     currentTurn = 'O';
     document.getElementById('whoseTurn').innerHTML = 'It is O\'s turn';
-    console.log(currentTurn);
   } else {
-    putO(e);
+    addMark(e, currentTurn);
     currentTurn = 'X';
     document.getElementById('whoseTurn').innerHTML = 'It is X\'s turn';
   }
 }
 
-const table = document.getElementById('table');
+const table = document.getElementById('board');
 table.addEventListener('click', alternate, false);
