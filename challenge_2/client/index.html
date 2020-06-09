@@ -1,17 +1,20 @@
 <!DOCTYPE html>
+
 <head>
 </head>
 
 <body>
 
   <h1> CSV Report Generator </h1>
+  <form id='form'>
+    <label for="jsonInput"> JSON to CSV report: </label>
+    <br>
+    <textarea id='jsonInput' rows='10' cols='40'> Please input your JSON data here...</textarea>
+    <br>
+    <button type='submit'> Submit </button>
+  </form>
 
-  <label for="jsonInput"> JSON to CSV report: </label>
-  <br>
-  <textarea id='jsonInput' rows='10' cols='40'> Please input your JSON data here...</textarea>
-  <br>
-  <button type='submit'> Submit </button>
-
+  <script src='App.js'> </script>
 </body>
 
 
@@ -27,9 +30,9 @@ MAIN GOAL
 TODOS steps
 1. DONE - Package.json
 2. DONE - Install dependencies
-3. serve express server in server.js
-4. Html form for JSON data. Simple textarea.
-5. Submit button
+3. DONE - serve express server in server.js
+4. DONE - Html form for JSON data. Simple textarea.
+5. DONE - Submit button
 6. When Submit button clicked, client sends POST request
   (FORM submission use browser default. NO JQuery or AJAX)
 7. Refactor html form into using 'file picker' instead of textArea.
