@@ -70,35 +70,35 @@
     <div>
       <table id='board'>
         <tr>
-          <td id='t00' onclick="handleClick(this.id)"></td>
-          <td id='t01' onclick="handleClick(this.id)"></td>
-          <td id='t02' onclick="handleClick(this.id)"></td>
+          <td id='t00' onclick="userInter.handleClick(this.id)"></td>
+          <td id='t01' onclick="userInter.handleClick(this.id)"></td>
+          <td id='t02' onclick="userInter.handleClick(this.id)"></td>
         </tr>
 
         <tr>
-          <td id='t10' onclick="handleClick(this.id)"></td>
-          <td id='t11' onclick="handleClick(this.id)"></td>
-          <td id='t12' onclick="handleClick(this.id)"></td>
+          <td id='t10' onclick="userInter.handleClick(this.id)"></td>
+          <td id='t11' onclick="userInter.handleClick(this.id)"></td>
+          <td id='t12' onclick="userInter.handleClick(this.id)"></td>
         </tr>
 
         <tr>
-          <td id='t20' onclick="handleClick(this.id)"></td>
-          <td id='t21' onclick="handleClick(this.id)"></td>
-          <td id='t22' onclick="handleClick(this.id)"></td>
+          <td id='t20' onclick="userInter.handleClick(this.id)"></td>
+          <td id='t21' onclick="userInter.handleClick(this.id)"></td>
+          <td id='t22' onclick="userInter.handleClick(this.id)"></td>
         </tr>
       </table>
     </div>
   </div>
   <div id='whoseTurn'> X starts the game </div>
 
-  <button id='reset' type='button' onclick="resetGame()"> Reset game </button>
+  <button id='reset' type='button' onclick="userInter.resetGame()"> Reset game </button>
 
   <div>
   <label for ="playerX"> Enter player name for X</label>
   <input type='text' id='nameX'> <br>
   <label for ="playerO"> Enter player name for O</label>
   <input type='text' id='nameO'>
-  <button id='reset' type='button' onclick="submitName()"> Submit Names and start the game </button>
+  <button id='reset' type='button' onclick="userInter.submitName()"> Submit Names and start the game </button>
 
   </div>
   <script src="App.js"> </script>
