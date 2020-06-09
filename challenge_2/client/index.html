@@ -1,2 +1,43 @@
+<!DOCTYPE html>
+<head>
+</head>
+
+<body>
+
+  <h1> CSV Report Generator </h1>
+
+  <label for="jsonInput"> JSON to CSV report: </label>
+  <textarea id='jsonInput'> Please input your JSON data here...</textarea>
+
+</body>
 
 
+</html>
+<!--
+BARE MIN
+MAIN GOAL
+1. index.html on Express server
+2. Client submits JSON data and gets CSV file back
+3. File conversion logic must happen on the server.
+
+
+TODOS steps
+1. DONE - Package.json
+2. DONE - Install dependencies
+3. serve express server in server.js
+4. Html form for JSON data. Simple textarea.
+5. Submit button
+6. When Submit button clicked, client sends POST request
+  (FORM submission use browser default. NO JQuery or AJAX)
+7. Refactor html form into using 'file picker' instead of textArea.
+  NO Jquery and AJAX.
+8. Refactor using Jquery/Ajax tp submit Json file. it is Single Page app.
+  No page reload.
+9. Add a link to download the CSV file. Server or client based. Both fine.
+
+
+Requirements
+- JQuery - can be used to manupilate DOM or DOM events.
+- DONE - Nodemon - use it. Install with package.json
+- DONE - No CSS  is necessary. Use browser's default styling.
+- Keep coding best practices for seperation of concerns -->
