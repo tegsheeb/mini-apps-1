@@ -11,6 +11,9 @@ app.use('/', express.static(path.join(__dirname, '/public')))
 // app.use(express.static('public'))
 
 // app.get('/', (req, res) => res.send('Hello World!'))
+
+
+
 // MAIN TODO
 // 1. Use Express to serve index.html and its assets
 // 2. Use REACT to build UI
