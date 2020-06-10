@@ -21,19 +21,45 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.post('/submit', (req, res) => {
 
 
-  // console.log(req.body.jsonInput);
+  console.log(req.body.jsonInput);
 
   let jsonInput = req.body.jsonInput;
+  console.log('got jsonInput', jsonInput);
 
-  if(jsonInput.substring(-1) === ';') {
-    jsonInput = jsonInput.substring(0, -1);
+  jsonInput = JSON.parse(jsonInput);
+
+  // console.log(JSON.parse(jsonInput));
+  // console.log(typeof JSON.parse(jsonInput));
+  let csvReport = [];
+  let header = Object.keys(jsonInput).slice(0, -1);
+  // console.log(header);
+
+  csvReport.push(header);
+
+  const getCSV = function (obj) {
+    let arr = [];
+    for (i = 0; i < header.length; i++) {
+      arr.push(obj[header[i]]);
+    }
+    csvReport.push(arr);
+
+    if(obj.children === []) {
+      return;
+    }
+    if (obj.children !== undefined ) {
+      obj.children.map(child => getCSV(child));
+    }
   }
 
-  console.log(JSON.parse(jsonInput));
-  console.log(typeof JSON.parse(jsonInput));
-  //
-  // res.send(req.body);
-  res.send(jsonInput);
+  getCSV(jsonInput);
+  // console.log(csvReport);
+
+  csvReport.map(innerArr => innerArr.join(','));
+
+  var result = csvReport.join("\n");
+
+  console.log(result);
+  res.send(result);
 
 })
 
