@@ -17,9 +17,23 @@ app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// Post request
 app.post('/submit', (req, res) => {
 
-  res.send(req.body.form);
+
+  // console.log(req.body.jsonInput);
+
+  let jsonInput = req.body.jsonInput;
+
+  if(jsonInput.substring(-1) === ';') {
+    jsonInput = jsonInput.substring(0, -1);
+  }
+
+  console.log(JSON.parse(jsonInput));
+  console.log(typeof JSON.parse(jsonInput));
+  //
+  // res.send(req.body);
+  res.send(jsonInput);
 
 })
 
