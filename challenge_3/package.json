@@ -1,0 +1,28 @@
+{
+  "name": "challenge_3",
+  "version": "1.0.0",
+  "description": "day 3 in mini apps",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start-babeled": "babel client --out-dir public --presets @babel/preset-react --source-maps inline --watch"
+  },
+  "author": "hackreactor tegshee",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-react": "^7.10.1",
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-react-jsx": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "babel-watch": "^7.0.0"
+  }
+}
