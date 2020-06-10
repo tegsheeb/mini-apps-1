@@ -6,19 +6,23 @@
 <body>
 
   <h1> CSV Report Generator </h1>
-  <form id='form'>
+  <form id='form' method='POST' action='/submit' enctype='application/json' >
     <label for="jsonInput"> JSON to CSV report: </label>
     <br>
-    <textarea id='jsonInput' rows='10' cols='40'> Please input your JSON data here...</textarea>
+    <textarea id='jsonInput' rows='10' cols='40' name ='jsonInput'> Please input your JSON data here...</textarea>
     <br>
-    <button type='submit'> Submit </button>
+    <button>Send the file</button>
+
+    <!-- <input type='submit' value='Submit'>  </input> -->
   </form>
 
-  <script src='App.js'> </script>
+  <!-- <script src='App.js'> </script> -->
 </body>
 
 
 </html>
+
+<!-- enctype='multipart/form-data' -->
 <!--
 BARE MIN
 MAIN GOAL
