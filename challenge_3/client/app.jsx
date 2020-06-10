@@ -1,2 +1,8 @@
+ReactDOM.render(<App/>, document.getElementById('app'));
 
-console.log('this is from app.jsx and some changes');
+function App (props) {
+  return (
+    <div> here is something from App component </div>
+  )
+
+};
