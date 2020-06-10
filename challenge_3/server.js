@@ -8,7 +8,7 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 app.use('/', express.static(path.join(__dirname, '/public')))
 
-
+// app.use(express.static('public'))
 
 // app.get('/', (req, res) => res.send('Hello World!'))
 // MAIN TODO
@@ -18,12 +18,12 @@ app.use('/', express.static(path.join(__dirname, '/public')))
 // 4. Use MongoDB or MySQL fot database
 
 // Set-up TODO
-// 1. No Webpack, use Babel to --watch
-//   - use Nodemon to watch server.js
-// 2. Express app in server.js
-// 3. Client app in /Client
-// 4. All React component in App.jsx
-// 5. Link transpiled file from index.html.
+// - DONE No Webpack, use Babel to --watch
+// - DONE use Nodemon to watch server.js
+// - DONE Express app in server.js
+// - DONE  Client app in /Client
+// -  All React component in App.jsx
+// - DONE Link transpiled file from index.html.
 
 // Homepage
 // - Homepage with checkout button
