@@ -9,6 +9,10 @@ app.listen(port, () => {console.log(`we are listeing at http:/localhost:${port}`
 
 app.use(express.static('./client/dist'))
 
+
+
+
+
 // MAIN GOAL
 // 1 - Create connect four game
 
@@ -19,9 +23,10 @@ app.use(express.static('./client/dist'))
 // - All logic of the game will be in client code
 
 // Setups
-// - package.json
-// - webpack config
-// - install nodemon, react reac-dom
+// - DONE package.json
+// - DONE webpack config
+// - DONE install nodemon, react reac-dom
+// - DONE transpile into bundle.js
 
 
 
