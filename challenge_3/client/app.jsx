@@ -2,159 +2,138 @@ function Homepage(props) {
   return <h1>This is home page</h1>;
 }
 
-function Form1 (props) {
+function Form1(props) {
   return (
-    <div>
+    <form onSubmit={this.handleSubmit}>
       <label>
         Name:
-    <input type="text" name="name" />
+        <input type='text' name='name' onChange={this.handleChange} />
       </label>
       <label>
         Email:
-      <input type="text" name="email" />
+        <input type='text' name='email' onChange={this.handleChange} />
       </label>
       <label>
         Password:
-          <input type="text" name="password" />
+        <input type='text' name='password' onChange={this.handleChange} />
       </label>
-    </div>
+
+      <input type='submit' value='Next' />
+    </form>
   )
-  };
+};
 
-
-function CurrentPage(props) {
-  const isForm1 = props.isForm1;
-  if (isForm1) {
-    return <Homepage />;
-  }
-  return <Form1 />;
-}
-
-
-function CheckoutButton(props) {
+function Form2 (props) {
   return (
-    <button onClick={props.onClick}>
-      checkout
-    </button>
-  );
-}
+    <form onSubmit={this.handleSubmit}>
+      <div>Shipping address </div>
+      <label>
+        Line 1:
+    <input type="text" name="line1" onChange={this.handleChange} />
+      </label>
+      <label>
+        Line 2:
+      <input type="text" name="line2" onChange={this.handleChange}/>
+      </label>
+      <label>
+        City:
+          <input type="text" name="city" onChange={this.handleChange}/>
+      </label>
+      <label>
+        State:
+          <input type="text" name="state" onChange={this.handleChange}/>
+      </label>
+      <label>
+       Zip code:
+      <input type="text" name="zipCode" onChange={this.handleChange} />
+    </label>
+    <input type='submit' value='Next' />
 
-function ReturnButton(props) {
+    </form >
+  )
+};
+
+function Form3 (props) {
   return (
-    <button onClick={props.onClick}>
-      Return
-    </button>
-  );
-}
+    <form onSubmit={this.handSubmit}>
+      <label>
+        Credit card number:
+        <input type="text" name="ccNumber" onChange={this.handleChange}/>
+      </label>
+      <label>
+        Expiry data:
+        <input type="text" name="expDate" onChange={this.handleChange} />
+      </label>
+      <label>
+        CVV:
+        <input type="text" name="cvv" onChange={this.handleChange}/>
+      </label>
+      <label>
+        Billing Zip Code:
+        <input type="text" name="billingZipCode" onChange={this.handleChange} />
+      </label>
+      <input type='submit' value='Next' />
+    </form>
+  )
+};
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handleCheckoutClick = this.handleCheckoutClick.bind(this);
-    this.handleReturnClick = this.handleReturnClick.bind(this);
-    this.state = {isForm1: true};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleHomepageToForm1 = this.handleHomepageToForm1.bind(this);
+    this.handleForm1ToForm2 = this.handleForm1ToForm2.bind(this);
+    this.handleForm2ToForm3 = this.handleForm2ToForm3.bind(this);
+
+    this.state = {
+      isHomepage: true,
+      isForm1: false,
+      isForm2: false,
+      isForm3: false,
+    };
   }
 
-  handleCheckoutClick() {
-    this.setState({isForm1: true});
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value});
   }
 
-  handleReturnClick() {
-    this.setState({isForm1: false});
+  handleHomepageToForm1() {
+    this.setState({
+      Homepage: false,
+      isForm1: true
+    });
+  }
+
+
+  handleForm1ToForm2() {
+    this.setState({
+      isForm1: false,
+      isForm2: true
+    });
+  }
+
+  handleForm2ToForm3() {
+    this.setState({
+      isForm2: false,
+      isForm3: true
+    });
   }
 
   render() {
-    const isForm1 = this.state.isForm1;
-    let button;
-    if (isForm1) {
-      button = <ReturnButton onClick={this.handleReturnClick} />;
-    } else {
-      button = <CheckoutButton onClick={this.handleCheckoutClick} />;
+    let rendering;
+    if (this.state.isHomepage) {
+      rendering = <button onClick={this.handleHomepageToForm1}> Let's start checkout </button>
+    } else if (this.state.isForm1) {
+      rendering = <Form1 onSubmit={this.handleForm1ToForm2} onChange={this.handleChange}/>
+    } else if (this.state.isForm2) {
+      rendering = <Form2 onSubmit={this.handleForm2ToForm3} onChange={}/>
     }
 
-    return (
-      <div>
-        <CurrentPage isForm1={isForm1} />
-        {button}
-      </div>
-    );
+    return rendering
+
   }
 }
 
-
-// const Form1 = (props) => {
-//   return (
-//     <div>
-//       <label>
-//         Name:
-//     <input type="text" name="name" />
-//       </label>
-//       <label>
-//         Email:
-//       <input type="text" name="email" />
-//       </label>
-//       <label>
-//         Password:
-//           <input type="text" name="password" />
-//       </label>
-//       <button type='button'> Next </button>
-//     </div>
-//   )
-// };
-
 ReactDOM.render(<App/>, document.getElementById('app'));
-
-
-// {/* // const Form2 = (props) =>
-// //   return (
-// //     <div>
-// //       <div>Shipping address </div>
-// //       <label>
-// //         Line 1:
-// //     <input type="text" name="line1" />
-// //       </label>
-// //       <label>
-// //         Line 2:
-// //       <input type="text" name="line2" />
-// //       </label>
-// //       <label>
-// //         City:
-// //           <input type="text" name="city" />
-// //       </label>
-// //       <label>
-// //         State:
-// //           <input type="text" name="state" />
-// //       </label>
-// //       <label>
-// //        Zip code:
-// //       <input type="text" name="zipCode" />
-// //     </label>
-// //     </div >
-// //   )
-// // }
-
-// // const Form3 = (props) =>
-// //   return (
-// //     <div>
-// //       <label>
-// //        Credit card number:
-// //     <input type="text" name="ccNumber" />
-// //       </label>
-// //       <label>
-// //         Expiry data:
-// //       <input type="text" name="expDate" />
-// //       </label>
-// //       <label>
-// //         CVV:
-// //           <input type="text" name="cvv" />
-// //       </label>
-// //       <label>
-// //         Billing Zip Code:
-// //           <input type="text" name="billingZipCode" />
-// //       </label>
-// //       <button type='button'> Next </button>
-// //     </div>
-// //   )
-// // } */}
-
