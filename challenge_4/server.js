@@ -5,9 +5,9 @@ const path = require('path');
 
 app.listen(port, () => {console.log(`we are listeing at http:/localhost:${port}`)})
 
-app.get('/', (req, res) => {res.send('hello from express server')})
+// app.get('/', (req, res) => {res.send('hello from express server')})
 
-// app.use(express.static(./client/dist))
+app.use(express.static('./client/dist'))
 
 // MAIN GOAL
 // 1 - Create connect four game
